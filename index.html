@@ -19,12 +19,12 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; overflow-x:hidden; }
-
+ 
   /* TOP BANNER */
   .top-banner { background:var(--sage-dark); color:white; text-align:center; padding:9px 5%; font-size:12.5px; font-weight:500; letter-spacing:0.02em; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; position:fixed; top:0; left:0; right:0; z-index:200; }
   .top-banner-item { display:flex; align-items:center; gap:6px; white-space:nowrap; }
   .top-banner-sep { opacity:0.3; }
-
+ 
   /* NAV */
   .nav { position:fixed; top:36px; left:0; right:0; z-index:100; background:rgba(247,246,242,0.96); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 5%; height:60px; display:flex; align-items:center; justify-content:space-between; transition:box-shadow 0.3s; }
   .nav.scrolled { box-shadow:var(--shadow); }
@@ -37,7 +37,7 @@
   .nav-cod-pill { display:flex; align-items:center; gap:6px; background:var(--gold-pale); border:1px solid var(--gold-border); color:var(--gold); padding:6px 14px; border-radius:100px; font-size:12px; font-weight:600; }
   .nav-cta { background:var(--sage); color:#fff; border:none; padding:10px 22px; border-radius:100px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:all 0.25s; }
   .nav-cta:hover { background:var(--sage-dark); transform:translateY(-1px); }
-
+ 
   /* HERO */
   .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:138px 5% 60px; gap:60px; max-width:1200px; margin:0 auto; }
   .hero-badge { display:inline-flex; align-items:center; gap:8px; background:var(--sage-pale); color:var(--sage-dark); border:1px solid var(--sage-light); padding:6px 14px; border-radius:100px; font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:20px; }
@@ -45,13 +45,13 @@
   .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(44px,6vw,72px); font-weight:400; line-height:1.08; margin-bottom:16px; letter-spacing:-0.01em; }
   .hero-title em { font-style:italic; color:var(--sage-dark); }
   .hero-subtitle { font-size:15px; color:var(--text-muted); line-height:1.75; margin-bottom:24px; max-width:420px; }
-
+ 
   /* COD HERO BLOCK */
   .hero-cod-block { background:var(--gold-pale); border:2px solid var(--gold-border); border-radius:14px; padding:18px 20px; margin-bottom:28px; display:flex; align-items:flex-start; gap:14px; }
   .hero-cod-icon { font-size:30px; flex-shrink:0; line-height:1; }
   .hero-cod-title { font-size:15px; font-weight:700; color:var(--gold); margin-bottom:4px; }
   .hero-cod-desc { font-size:13px; color:#8a6a30; line-height:1.6; }
-
+ 
   .hero-actions { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
   .btn-primary { background:var(--sage); color:#fff; border:none; padding:16px 30px; border-radius:100px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:500; cursor:pointer; transition:all 0.25s; display:flex; align-items:center; gap:8px; }
   .btn-primary:hover { background:var(--sage-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(141,170,145,0.35); }
@@ -59,14 +59,14 @@
   .hero-trust-row { display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; }
   .trust-pill { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--text-muted); }
   .trust-pill::before { content:'✓'; color:var(--sage); font-weight:700; }
-
+ 
   /* HERO IMAGE */
   .hero-img-wrap { position:relative; }
   .hero-img-card { background:var(--white); border-radius:24px; overflow:hidden; box-shadow:var(--shadow-lg); aspect-ratio:4/5; }
   .hero-img-placeholder { display:none; }
-
-
-
+ 
+ 
+ 
   .hero-float-cod { position:absolute; bottom:24px; left:-16px; background:var(--white); border-radius:14px; padding:14px 18px; box-shadow:var(--shadow-lg); display:flex; align-items:center; gap:12px; animation:floatBadge 3s ease-in-out infinite; border-left:3px solid var(--gold); }
   @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
   .float-label { font-size:11px; color:var(--text-muted); line-height:1.3; }
@@ -74,7 +74,7 @@
   .float-val.gold { color:var(--gold); }
   .hero-stars { position:absolute; top:24px; right:-16px; background:var(--white); border-radius:12px; padding:10px 14px; box-shadow:var(--shadow); font-size:13px; display:flex; align-items:center; gap:6px; animation:floatBadge 3s ease-in-out infinite 1.5s; }
   .stars-text { color:#F5A623; letter-spacing:1px; }
-
+ 
   /* TRUST BAR */
   .trust-bar { background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:22px 5%; }
   .trust-bar-inner { max-width:1000px; margin:0 auto; display:flex; justify-content:space-around; align-items:center; gap:16px; flex-wrap:wrap; }
@@ -83,7 +83,7 @@
   .ti-green { background:var(--sage-pale); } .ti-gold { background:var(--gold-pale); }
   .trust-text strong { display:block; font-size:13px; font-weight:600; color:var(--text); }
   .trust-text span { font-size:12px; color:var(--text-muted); }
-
+ 
   /* BENEFITS */
   .benefits { background:var(--bg); padding:80px 5%; }
   .section-tag { text-align:center; font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--sage-dark); margin-bottom:12px; }
@@ -96,7 +96,7 @@
   .benefit-icon-wrap svg { width:26px; height:26px; stroke:var(--sage-dark); }
   .benefit-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; margin-bottom:8px; }
   .benefit-desc { font-size:13px; color:var(--text-muted); line-height:1.7; }
-
+ 
   /* PRODUCT */
   .product-section { padding:60px 5%; max-width:1100px; margin:0 auto; }
   .product-card-big { background:var(--white); border-radius:28px; overflow:hidden; box-shadow:var(--shadow-lg); display:grid; grid-template-columns:1fr 1fr; }
@@ -123,7 +123,7 @@
   .product-cod-block-title { font-size:14px; font-weight:700; color:var(--gold); margin-bottom:6px; }
   .product-cod-block-item { display:flex; align-items:center; gap:7px; font-size:12px; color:#7a5a20; margin-bottom:3px; }
   .product-cod-block-item::before { content:'✓'; color:var(--gold); font-weight:700; }
-
+ 
   /* COD STRIP */
   .cod-strip { background:linear-gradient(135deg,#2d5a35 0%,#1e3d26 100%); padding:56px 5%; }
   .cod-strip-inner { max-width:960px; margin:0 auto; }
@@ -136,7 +136,7 @@
   .cod-step-icon { font-size:30px; margin-bottom:12px; }
   .cod-step-title { font-size:14px; font-weight:500; color:white; margin-bottom:7px; }
   .cod-step-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7; }
-
+ 
   /* FORM */
   .form-section { background:var(--white); padding:80px 5%; position:relative; overflow:hidden; }
   .form-section::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,var(--sage-pale) 0%,transparent 70%); pointer-events:none; }
@@ -168,13 +168,13 @@
   .order-summary { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 18px; display:flex; justify-content:space-between; align-items:center; }
   .summary-label { font-size:12px; color:var(--text-muted); }
   .summary-price { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; }
-
+ 
   /* BIG COD REMINDER */
   .form-cod-reminder { background:var(--gold-pale); border:2px solid var(--gold-border); border-radius:14px; padding:20px; display:flex; gap:14px; align-items:flex-start; }
   .form-cod-reminder-icon { font-size:32px; flex-shrink:0; }
   .form-cod-reminder-title { font-size:15px; font-weight:700; color:var(--gold); margin-bottom:6px; }
   .form-cod-reminder-desc { font-size:13px; color:#7a5a20; line-height:1.6; }
-
+ 
   .btn-submit { width:100%; background:var(--sage); color:#fff; border:none; padding:18px; border-radius:100px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:500; cursor:pointer; transition:all 0.25s; display:flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.02em; }
   .btn-submit:hover { background:var(--sage-dark); transform:translateY(-2px); box-shadow:0 8px 28px rgba(141,170,145,0.4); }
   .btn-submit.loading { pointer-events:none; opacity:0.8; }
@@ -184,7 +184,7 @@
   @keyframes spin { to{transform:rotate(360deg)} }
   .form-security { display:flex; align-items:center; justify-content:center; gap:6px; font-size:12px; color:var(--text-muted); margin-top:10px; text-align:center; }
   .form-security svg { width:13px; height:13px; stroke:var(--sage); flex-shrink:0; }
-
+ 
   /* SUCCESS */
   .success-state { display:none; text-align:center; padding:60px 32px; }
   .success-state.show { display:block; }
@@ -198,22 +198,22 @@
   .success-steps { display:flex; flex-direction:column; gap:12px; text-align:left; }
   .stp { display:flex; align-items:flex-start; gap:12px; font-size:13px; color:var(--text-muted); }
   .stp-num { width:24px; height:24px; background:var(--sage); border-radius:50%; color:white; font-size:12px; font-weight:500; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-
+ 
   /* FOOTER */
   footer { background:var(--text); padding:40px 5% 28px; text-align:center; color:rgba(255,255,255,0.45); font-size:13px; }
   .footer-logo { color:var(--sage-light); font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; margin-bottom:14px; }
   .footer-cod-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(201,145,58,0.12); border:1px solid rgba(201,145,58,0.25); color:#d4a95a; padding:8px 18px; border-radius:100px; font-size:12px; font-weight:500; margin-bottom:16px; }
-
+ 
   /* REVEAL */
   .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
   .reveal.in { opacity:1; transform:none; }
   .reveal.d1{transition-delay:0.1s} .reveal.d2{transition-delay:0.2s} .reveal.d3{transition-delay:0.3s}
-
+ 
   /* TOAST */
   .toast-box { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--text); color:white; padding:14px 24px; border-radius:100px; font-size:14px; z-index:9999; transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); white-space:nowrap; display:flex; align-items:center; gap:8px; box-shadow:0 8px 28px rgba(0,0,0,0.2); }
   .toast-box.up { transform:translateX(-50%) translateY(0); }
   .toast-dot { width:8px; height:8px; background:var(--sage); border-radius:50%; }
-
+ 
   /* RESPONSIVE */
   @media(max-width:860px){
     .top-banner{font-size:11px;gap:10px;padding:8px 3%}
@@ -235,15 +235,15 @@
     .qty-row{grid-template-columns:1fr}
     .trust-bar-inner{gap:12px}
   }
-
-
-
+ 
+ 
+ 
   /* PRODUCT SPECS */
   .product-specs { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); border-radius:12px; overflow:hidden; margin-bottom:20px; }
   .spec-item { background:var(--bg); padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
   .spec-label { font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); font-weight:500; }
   .spec-val { font-size:13px; font-weight:500; color:var(--text); }
-
+ 
   /* REAL PRODUCT IMAGES */
   .hero-img-real {
     width: 100%; height: 100%;
@@ -260,7 +260,7 @@
     transition: transform 0.6s ease;
   }
   .hero-img-card:hover .hero-product-img { transform: scale(1.04) translateY(-4px); }
-
+ 
   .product-real-img {
     position: absolute; inset: 0;
     background: linear-gradient(145deg, #f0f8f0 0%, #d8eeda 40%, #b8debb 100%);
@@ -274,11 +274,11 @@
     transition: transform 0.5s ease;
   }
   .product-img-side:hover .product-photo { transform: scale(1.04) rotate(-1deg); }
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- TOP BANNER -->
 <div class="top-banner">
   <div class="top-banner-item">💵 <strong>Paiement à la livraison</strong> — Aucune carte requise</div>
@@ -287,7 +287,7 @@
   <span class="top-banner-sep">|</span>
   <div class="top-banner-item">✓ Vous payez quand vous recevez</div>
 </div>
-
+ 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
   <div class="nav-brand">
@@ -301,7 +301,7 @@
     <button class="nav-cta" onclick="scrollToForm()">Commander →</button>
   </div>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
@@ -340,7 +340,7 @@
     <div class="hero-stars"><span class="stars-text">★★★★★</span><span style="font-size:12px;color:#7A7A7A">4.9/5</span></div>
   </div>
 </section>
-
+ 
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
@@ -362,7 +362,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- BENEFITS -->
 <section class="benefits">
   <p class="section-tag reveal">Pourquoi le Matcha ?</p>
@@ -385,7 +385,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PRODUCT -->
 <section class="product-section">
   <div class="product-card-big reveal">
@@ -435,7 +435,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- COD STRIP -->
 <section class="cod-strip">
   <div class="cod-strip-inner">
@@ -463,7 +463,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FORM -->
 <section class="form-section" id="formSection">
   <div class="form-wrap">
@@ -515,7 +515,7 @@
               </div>
             </div>
           </div>
-
+ 
           <!-- COD REMINDER FORT -->
           <div class="form-cod-reminder">
             <div class="form-cod-reminder-icon">💵</div>
@@ -524,7 +524,7 @@
               <div class="form-cod-reminder-desc">Vous ne payez rien maintenant. Notre livreur vous contacte sur WhatsApp et vous payez en cash à la réception. Préparez la monnaie exacte.</div>
             </div>
           </div>
-
+ 
           <button type="submit" class="btn-submit" id="submitBtn">
             <span class="btn-label">✓ &nbsp;Commander — Je paie à la livraison</span>
             <div class="spinner"></div>
@@ -536,7 +536,7 @@
         </div>
       </form>
     </div>
-
+ 
     <!-- SUCCESS -->
     <div class="success-state" id="successState">
       <div class="success-anim"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -555,56 +555,51 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Matcha Élégance</div>
   <div class="footer-cod-badge">💵 Paiement à la livraison uniquement · Aucune carte requise</div><br>
   © 2025 · Livraison partout au Sénégal
 </footer>
-
+ 
 <div class="toast-box" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
-
+ 
 <script>
 const CONFIG = { UNIT_PRICE: 5000, GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxTcYE3D35YQthzupeNW-uMKjvXbUYpN_VdmA5UnWAGB3yLxFFsKtzmRA1hxDRLuhpFFA/exec", ENABLED: true };
 let qty = 1;
-
+ 
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
 });
-
+ 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
+ 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = JSON.parse(localStorage.getItem('matcha_user') || '{}');
-  if (saved.fullName) document.getElementById('fullName').value = saved.fullName;
-  if (saved.phone)    document.getElementById('phone').value    = saved.phone;
-  if (saved.city)     document.getElementById('city').value     = saved.city;
-  if (saved.address)  document.getElementById('address').value  = saved.address;
-  if (saved.fullName) showToast('👋 Bon retour ' + saved.fullName.split(' ')[0] + ' ! Vos infos sont pré-remplies.');
+  // Formulaire vide à chaque visite — pas de pré-remplissage
 });
-
+ 
 function changeQty(delta) {
   qty = Math.max(1, Math.min(10, qty + delta));
   document.getElementById('qtyDisplay').textContent = qty;
   document.getElementById('summaryPrice').textContent = (CONFIG.UNIT_PRICE * qty).toLocaleString('fr-SN') + ' FCFA';
 }
-
+ 
 function scrollToForm() {
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => { const f = document.getElementById('fullName'); if (!f.value) f.focus(); }, 700);
 }
-
+ 
 function showToast(msg, duration = 3500) {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
   t.classList.add('up');
   setTimeout(() => t.classList.remove('up'), duration);
 }
-
+ 
 function validateField(id, checkFn) {
   const el = document.getElementById(id);
   const ok = checkFn(el.value.trim());
@@ -612,7 +607,7 @@ function validateField(id, checkFn) {
   if (!ok) el.addEventListener('input', () => el.classList.remove('error'), { once: true });
   return ok;
 }
-
+ 
 function validateAll() {
   return [
     validateField('fullName', v => v.length >= 3),
@@ -621,7 +616,7 @@ function validateAll() {
     validateField('address',  v => v.length >= 8),
   ].every(Boolean);
 }
-
+ 
 async function sendToGoogleSheets(data) {
   if (!CONFIG.ENABLED || CONFIG.GOOGLE_SCRIPT_URL === 'COLLEZ_VOTRE_URL_ICI') {
     console.log('DEV - commande simulée :', data); return true;
@@ -631,7 +626,7 @@ async function sendToGoogleSheets(data) {
     return true;
   } catch(e) { return false; }
 }
-
+ 
 document.getElementById('orderForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!validateAll()) {
@@ -648,7 +643,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     qty, unitPrice: CONFIG.UNIT_PRICE, total: CONFIG.UNIT_PRICE * qty,
     date: new Date().toLocaleString('fr-SN', { timeZone: 'Africa/Dakar' }),
   };
-  localStorage.setItem('matcha_user', JSON.stringify({ fullName:data.name, phone:data.phone, city:data.city, address:data.address }));
+  // Pas de sauvegarde locale
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
   await sendToGoogleSheets(data);
@@ -664,3 +659,4 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
+ 
