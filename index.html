@@ -410,7 +410,7 @@
         <div class="perk"><div class="perk-dot"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></div>Grade cérémoniel — qualité supérieure</div>
       </div>
       <div class="price-row">
-        <div class="price-main">5 000 <span style="font-size:22px">FCFA</span></div>
+        <div class="price-main">10 000 <span style="font-size:22px">FCFA</span></div>
         <div class="price-old">7 500 FCFA</div>
       </div>
       <div class="product-specs">
@@ -511,7 +511,7 @@
               <label class="form-label">Total à payer (cash)</label>
               <div class="order-summary">
                 <span class="summary-label">💵 À la livraison</span>
-                <span class="summary-price" id="summaryPrice">5 000 FCFA</span>
+                <span class="summary-price" id="summaryPrice">10 000 FCFA</span>
               </div>
             </div>
           </div>
@@ -566,7 +566,7 @@
 <div class="toast-box" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
  
 <script>
-const CONFIG = { UNIT_PRICE: 5000, GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxTcYE3D35YQthzupeNW-uMKjvXbUYpN_VdmA5UnWAGB3yLxFFsKtzmRA1hxDRLuhpFFA/exec", ENABLED: true };
+const CONFIG = { UNIT_PRICE: 10000, GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxTcYE3D35YQthzupeNW-uMKjvXbUYpN_VdmA5UnWAGB3yLxFFsKtzmRA1hxDRLuhpFFA/exec", ENABLED: true };
 let qty = 1;
  
 window.addEventListener('scroll', () => {
@@ -654,7 +654,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
   document.getElementById('successDetail').innerHTML =
     `<strong>Récapitulatif :</strong><br>📦 ${data.qty} boîte(s) × ${data.unitPrice.toLocaleString()} FCFA = <strong>${data.total.toLocaleString()} FCFA</strong><br>👤 ${data.name} — 📞 ${data.phone}<br>📍 ${data.city} — ${data.address}`;
   ss.scrollIntoView({ behavior:'smooth', block:'center' });
-  showToast('🎉 Commande confirmée ! Préparez la monnaie.', 5000);
+  showToast('🎉 Commande confirmée ! Préparez la monnaie.', 10000);
 });
 </script>
 </body>
