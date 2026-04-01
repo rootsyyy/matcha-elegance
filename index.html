@@ -617,7 +617,6 @@ function scrollToForm() {
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => { const f = document.getElementById('fullName'); if (!f.value) f.focus(); }, 700);
 }
-}
  
 function showToast(msg, duration = 3500) {
   const t = document.getElementById('toast');
@@ -679,7 +678,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
   ss.classList.add('show');
   document.getElementById('successDetail').innerHTML =
     `<strong>Récapitulatif :</strong><br>📦 ${data.qty} boîte(s) × ${data.unitPrice.toLocaleString()} FCFA = <strong>${data.total.toLocaleString()} FCFA</strong><br>👤 ${data.name} — 📞 ${data.phone}<br>📍 ${data.city} — ${data.address}`;
-  sss.scrollIntoView({ behavior:'smooth', block:'center' });
+  ss.scrollIntoView({ behavior:'smooth', block:'center' });
   showToast('🎉 Commande confirmée ! Préparez la monnaie.', 10000);
 
   // META PIXEL — Lead (commande confirmée)
