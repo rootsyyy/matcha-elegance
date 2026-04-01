@@ -606,8 +606,17 @@ function changeQty(delta) {
 }
  
 function scrollToForm() {
+  // META PIXEL — InitiateCheckout
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'Matcha Organique Premium',
+      currency: 'XOF',
+      value: CONFIG.UNIT_PRICE * qty
+    });
+  }
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => { const f = document.getElementById('fullName'); if (!f.value) f.focus(); }, 700);
+}
 }
  
 function showToast(msg, duration = 3500) {
@@ -670,8 +679,18 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
   ss.classList.add('show');
   document.getElementById('successDetail').innerHTML =
     `<strong>Récapitulatif :</strong><br>📦 ${data.qty} boîte(s) × ${data.unitPrice.toLocaleString()} FCFA = <strong>${data.total.toLocaleString()} FCFA</strong><br>👤 ${data.name} — 📞 ${data.phone}<br>📍 ${data.city} — ${data.address}`;
-  ss.scrollIntoView({ behavior:'smooth', block:'center' });
+  sss.scrollIntoView({ behavior:'smooth', block:'center' });
   showToast('🎉 Commande confirmée ! Préparez la monnaie.', 10000);
+
+  // META PIXEL — Lead (commande confirmée)
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'Matcha Organique Premium',
+      currency: 'XOF',
+      value: data.total,
+      num_items: data.qty
+    });
+  }
 });
 </script>
 </body>
