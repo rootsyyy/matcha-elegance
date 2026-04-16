@@ -287,7 +287,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1520135626781254');
-fbq('track', 'PageView');
+fbq('track', 'PageView', {}, {eventID: 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520135626781254&ev=PageView&noscript=1"
@@ -680,7 +680,7 @@ function scrollToForm() {
       content_name: 'Matcha Organique Premium',
       currency: 'XOF',
       value: CONFIG.UNIT_PRICE * qty
-    });
+    }, {eventID: 'ic_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
   }
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => { const f = document.getElementById('fullName'); if (!f.value) f.focus(); }, 700);
@@ -758,7 +758,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
       currency: 'XOF',
       value: data.total,
       num_items: data.qty
-    });
+    }, {eventID: 'pur_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
   }
 });
 </script>
