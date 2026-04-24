@@ -736,6 +736,18 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     qty, unitPrice: CONFIG.UNIT_PRICE, total: CONFIG.UNIT_PRICE * qty,
     date: new Date().toLocaleString('fr-SN', { timeZone: 'Africa/Dakar' }),
   };
+
+  // META PIXEL — AddPaymentInfo (infos de paiement/livraison validées)
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'AddPaymentInfo', {
+      content_name: 'Matcha Organique Premium',
+      content_ids: ['matcha-elegance-100g'],
+      content_category: 'Cash on Delivery',
+      currency: 'XOF',
+      value: data.total
+    }, {eventID: 'api_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
+  }
+
   // Pas de sauvegarde locale
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
