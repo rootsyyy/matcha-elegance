@@ -674,13 +674,16 @@ function changeQty(delta) {
 }
  
 function scrollToForm() {
-  // META PIXEL — InitiateCheckout
+  // META PIXEL — InitiateCheckout (avec téléphone si déjà saisi)
   if (typeof fbq !== 'undefined') {
-    fbq('track', 'InitiateCheckout', {
+    const phoneVal = (document.getElementById('phone')?.value || '').replace(/\D/g,'');
+    const icPayload = {
       content_name: 'Matcha Organique Premium',
       currency: 'XOF',
       value: CONFIG.UNIT_PRICE * qty
-    }, {eventID: 'ic_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
+    };
+    fbq('track', 'InitiateCheckout', icPayload,
+      {eventID: 'ic_' + (phoneVal || Date.now()) + '_' + Math.random().toString(36).substr(2,9)});
   }
   document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => { const f = document.getElementById('fullName'); if (!f.value) f.focus(); }, 700);
@@ -720,14 +723,24 @@ async function sendToGoogleSheets(data) {
   } catch(e) { return false; }
 }
  
+let _orderSubmitted = false; // Guard anti double-submit
+
 document.getElementById('orderForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (_orderSubmitted) return; // Bloque tout double-clic ou double-submit
   if (!validateAll()) {
     const firstError = document.querySelector('.form-input.error');
     if (firstError) { firstError.scrollIntoView({ behavior:'smooth', block:'center' }); firstError.focus(); }
     showToast('⚠️ Veuillez remplir tous les champs requis.');
     return;
   }
+
+  // Verrouiller immédiatement le bouton
+  _orderSubmitted = true;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.classList.add('loading');
+
   const data = {
     name: document.getElementById('fullName').value.trim(),
     phone: document.getElementById('phone').value.trim(),
@@ -737,7 +750,10 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     date: new Date().toLocaleString('fr-SN', { timeZone: 'Africa/Dakar' }),
   };
 
-  // META PIXEL — AddPaymentInfo (infos de paiement/livraison validées)
+  // Générer un eventID stable et unique par commande (basé sur téléphone + timestamp)
+  const orderEventID = 'pur_' + data.phone.replace(/\D/g,'') + '_' + Date.now();
+
+  // META PIXEL — AddPaymentInfo
   if (typeof fbq !== 'undefined') {
     fbq('track', 'AddPaymentInfo', {
       content_name: 'Matcha Organique Premium',
@@ -745,12 +761,9 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
       content_category: 'Cash on Delivery',
       currency: 'XOF',
       value: data.total
-    }, {eventID: 'api_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
+    }, {eventID: 'api_' + data.phone.replace(/\D/g,'') + '_' + Date.now()});
   }
 
-  // Pas de sauvegarde locale
-  const btn = document.getElementById('submitBtn');
-  btn.classList.add('loading');
   await sendToGoogleSheets(data);
   btn.classList.remove('loading');
   document.getElementById('formCard').style.display = 'none';
@@ -761,7 +774,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
   ss.scrollIntoView({ behavior:'smooth', block:'center' });
   showToast('🎉 Commande confirmée ! Préparez la monnaie.', 10000);
 
-  // META PIXEL — Purchase (commande confirmée)
+  // META PIXEL — Purchase (une seule fois, eventID stable)
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Purchase', {
       content_name: 'Matcha Organique Premium',
@@ -770,7 +783,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
       currency: 'XOF',
       value: data.total,
       num_items: data.qty
-    }, {eventID: 'pur_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
+    }, {eventID: orderEventID});
   }
 });
 </script>
