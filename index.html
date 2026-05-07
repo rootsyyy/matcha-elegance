@@ -288,6 +288,33 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1520135626781254');
 fbq('track', 'PageView', {}, {eventID: 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9)});
+
+// Advanced Matching helpers
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function buildAdvancedMatchingData(name, phone, city) {
+  const parts = name.trim().toLowerCase().split(/\s+/);
+  const fn = parts[0] || '';
+  const ln = parts.slice(1).join(' ') || '';
+  let ph = phone.replace(/\D/g,'');
+  if (!ph.startsWith('221')) ph = '221' + ph;
+  const ct = city.trim().toLowerCase();
+  const [hFn, hLn, hPh, hCt, hCountry] = await Promise.all([
+    fn ? sha256(fn) : Promise.resolve(null),
+    ln ? sha256(ln) : Promise.resolve(null),
+    ph ? sha256(ph) : Promise.resolve(null),
+    ct ? sha256(ct) : Promise.resolve(null),
+    sha256('sn'),
+  ]);
+  const ud = { country: hCountry };
+  if (hFn) ud.fn = hFn;
+  if (hLn) ud.ln = hLn;
+  if (hPh) ud.ph = hPh;
+  if (hCt) ud.ct = hCt;
+  return ud;
+}
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1520135626781254&ev=PageView&noscript=1"
@@ -752,6 +779,14 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
 
   // Générer un eventID stable et unique par commande (basé sur téléphone + timestamp)
   const orderEventID = 'pur_' + data.phone.replace(/\D/g,'') + '_' + Date.now();
+
+  // META PIXEL — Advanced Matching : réinitialise le pixel avec les données utilisateur hashées
+  if (typeof fbq !== 'undefined' && typeof buildAdvancedMatchingData === 'function') {
+    try {
+      const advancedData = await buildAdvancedMatchingData(data.name, data.phone, data.city);
+      fbq('init', '1520135626781254', advancedData);
+    } catch(e) { /* silent — advanced matching non bloquant */ }
+  }
 
   // META PIXEL — AddPaymentInfo
   if (typeof fbq !== 'undefined') {
