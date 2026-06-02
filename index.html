@@ -275,6 +275,27 @@
   }
   .product-img-side:hover .product-photo { transform: scale(1.04) rotate(-1deg); }
  
+
+  /* BUNDLE OFFER */
+  .bundle-section { background: linear-gradient(135deg, #1a3a1f 0%, #2d5a35 60%, #1a3a1f 100%); padding: 56px 5%; }
+  .bundle-card { max-width: 860px; margin: 0 auto; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 40px 48px; display: flex; align-items: center; gap: 40px; position: relative; overflow: hidden; }
+  .bundle-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(212,175,55,0.12); border-radius: 50%; }
+  .bundle-badge { position: absolute; top: -1px; right: 32px; background: #d4af37; color: #1a1a1a; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 16px; border-radius: 0 0 10px 10px; }
+  .bundle-imgs { display: flex; gap: -16px; flex-shrink: 0; }
+  .bundle-pot { width: 90px; height: 90px; background: rgba(255,255,255,0.1); border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 36px; }
+  .bundle-pot:last-child { margin-left: -20px; }
+  .bundle-info { flex: 1; }
+  .bundle-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d4af37; margin-bottom: 8px; }
+  .bundle-title { font-size: 26px; font-weight: 700; color: white; margin-bottom: 6px; line-height: 1.2; }
+  .bundle-desc { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 16px; line-height: 1.6; }
+  .bundle-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  .bundle-price-main { font-size: 36px; font-weight: 800; color: white; }
+  .bundle-price-unit { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.6); }
+  .bundle-price-old { font-size: 16px; color: rgba(255,255,255,0.4); text-decoration: line-through; }
+  .bundle-economy { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,175,55,0.2); border: 1px solid rgba(212,175,55,0.4); border-radius: 20px; padding: 5px 14px; font-size: 13px; color: #d4af37; font-weight: 600; margin-bottom: 20px; }
+  .bundle-cta { background: #d4af37; color: #1a1a1a; border: none; border-radius: 12px; padding: 14px 32px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .bundle-cta:hover { background: #c49b2a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,0.35); }
+  @media(max-width:700px) { .bundle-card { flex-direction: column; padding: 32px 24px; text-align: center; } .bundle-imgs { justify-content: center; } .bundle-price-row { justify-content: center; } .bundle-economy { margin: 0 auto 20px; } }
 </style>
 <!-- MeTa Pixel Code -->
 <script>
@@ -486,6 +507,35 @@ src="https://www.facebook.com/tr?id=1520135626781254&ev=PageView&noscript=1"
 </section>
  
 
+<!-- BUNDLE OFFER -->
+<section class="bundle-section">
+  <p class="section-tag reveal" style="color:rgba(255,255,255,0.6);text-align:center;">Offre Spéciale</p>
+  <h2 class="section-title reveal" style="color:white;text-align:center;">Faites <em style="color:#d4af37;">encore plus d'économies</em></h2>
+  <div class="bundle-card reveal">
+    <div class="bundle-badge">🔥 Offre Bundle</div>
+    <div class="bundle-imgs">
+      <div class="bundle-pot">🍵</div>
+      <div class="bundle-pot">🍵</div>
+    </div>
+    <div class="bundle-info">
+      <div class="bundle-tag">Pack Duo — Meilleure valeur</div>
+      <div class="bundle-title">2 Pots Matcha<br>Cérémoniel 30g</div>
+      <div class="bundle-desc">Idéal pour ne jamais être à court — ou pour offrir un pot à un proche. Même qualité bio certifiée, mêmes bienfaits.</div>
+      <div class="bundle-price-row">
+        <div class="bundle-price-main">18 500</div>
+        <div class="bundle-price-unit">FCFA</div>
+        <div class="bundle-price-old">20 000 FCFA</div>
+      </div>
+      <div class="bundle-economy">🎁 Économie de 1 500 FCFA</div><br>
+      <button class="bundle-cta" onclick="selectBundle()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Commander le Pack Duo — 18 500 FCFA
+      </button>
+    </div>
+  </div>
+</section>
+
+
 <!-- AVIS CLIENTS -->
 <section style="background:var(--bg2);padding:72px 5%;">
   <div style="max-width:1000px;margin:0 auto;">
@@ -626,6 +676,7 @@ src="https://www.facebook.com/tr?id=1520135626781254&ev=PageView&noscript=1"
                 <span class="summary-label">💵 À la livraison</span>
                 <span class="summary-price" id="summaryPrice">10 000 FCFA</span>
               </div>
+              <div id="bundleNote" style="display:none;background:#fff8e1;border:1px solid #d4af37;border-radius:8px;padding:8px 12px;font-size:12px;color:#7a5a20;font-weight:600;margin-top:8px;">🎁 Pack Duo actif — Économie de 1 500 FCFA !</div>
             </div>
           </div>
  
@@ -695,10 +746,28 @@ window.addEventListener('DOMContentLoaded', () => {
   // Formulaire vide à chaque visite — pas de pré-remplissage
 });
  
+function getPrice(q) {
+  if (q === 2) return 18500; // Bundle
+  return CONFIG.UNIT_PRICE * q;
+}
+
 function changeQty(delta) {
   qty = Math.max(1, Math.min(10, qty + delta));
   document.getElementById('qtyDisplay').textContent = qty;
-  document.getElementById('summaryPrice').textContent = (CONFIG.UNIT_PRICE * qty).toLocaleString('fr-SN') + ' FCFA';
+  const price = getPrice(qty);
+  const label = qty === 2 ? '🎁 Pack Duo — 18 500 FCFA (économie 1 500F)' : '';
+  document.getElementById('summaryPrice').textContent = price.toLocaleString('fr-SN') + ' FCFA';
+  const bundleNote = document.getElementById('bundleNote');
+  if (bundleNote) bundleNote.style.display = qty === 2 ? 'block' : 'none';
+}
+
+function selectBundle() {
+  qty = 2;
+  document.getElementById('qtyDisplay').textContent = 2;
+  document.getElementById('summaryPrice').textContent = '18 500 FCFA';
+  const bundleNote = document.getElementById('bundleNote');
+  if (bundleNote) bundleNote.style.display = 'block';
+  document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
  
 function scrollToForm() {
@@ -774,7 +843,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     phone: document.getElementById('phone').value.trim(),
     city: document.getElementById('city').value.trim(),
     address: document.getElementById('address').value.trim(),
-    qty, unitPrice: CONFIG.UNIT_PRICE, total: CONFIG.UNIT_PRICE * qty,
+    qty, unitPrice: getPrice(qty) / qty, total: getPrice(qty),
     date: new Date().toLocaleString('fr-SN', { timeZone: 'Africa/Dakar' }),
   };
 
